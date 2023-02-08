@@ -1,10 +1,13 @@
 <script>
-import { mapActions } from "pinia";
+import { mapActions, mapState } from "pinia";
 import { RouterLink } from "vue-router";
 import { useCounterStore } from "../stores/counter";
 export default {
   methods: {
     ...mapActions(useCounterStore, ['handleLogout'])
+  },
+  computed : {
+    ...mapState(useCounterStore, ['isLogin'])
   }
 }
 </script>
@@ -24,13 +27,13 @@ export default {
     <div>
       <ul class="flex gap-6">
         <li class="cursor-pointer hover:font-semibold">
-          <RouterLink to="/">Dashboard</RouterLink>
+          <RouterLink v-if="isLogin" to="/">Dashboard</RouterLink>
         </li>
         <li class="cursor-pointer hover:font-semibold">
-          <RouterLink to="/register">Register</RouterLink>
+          <RouterLink v-if="isLogin" to="/register">Register</RouterLink>
         </li>
         <li class="cursor-pointer hover:font-semibold">
-          <RouterLink to="/login" @click.prevent="handleLogout()">Logout</RouterLink>
+          <RouterLink v-if="isLogin" to="/login" @click.prevent="handleLogout()">Logout</RouterLink>
         </li>
       </ul>
     </div>
