@@ -1,11 +1,21 @@
-<script >
-import Navbar from '../components/Navbar.vue';
+<script>
+import Navbar from "../components/Navbar.vue";
+import Table from "../components/Table.vue";
 
 export default {
-  components: { Navbar }
-}
+  components: { Navbar, Table },
+};
 </script>
 
 <template>
-  
+  <div class="flex justify-center items-center p-4">
+    <p class="text-3xl font-semibold">User Information</p>
+  </div>
+  <section class="flex items-center justify-center px-12 flex-col w-8/12 mx-auto h-[60vh] mb-12">
+    <div class="flex items-center gap-2 w-full">
+      <input type="text" class="border-2 rounded-xl px-4 py-2 w-full" placeholder="Search">
+      <button class="bg-theme-3 rounded-xl px-4 py-2 text-white hover:bg-sky-400">Search</button>
+    </div>
+    <Table />
+  </section>
 </template>

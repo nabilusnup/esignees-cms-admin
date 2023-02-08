@@ -10,7 +10,7 @@ export default {
 
 <template>
   <Navbar />
-  <section class="min-h-[48vh]">
+  <section class="min-h-[48vh] text-theme-2">
     <RouterView />
   </section>
   <Footer />
